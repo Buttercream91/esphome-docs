@@ -138,6 +138,19 @@ These triggers ignore the min and max values and will trigger on every step.
     on_anticlockwise:
       - logger.log: "Turned Anticlockwise"
 
+You can return a stationary state throught the use of a simple script and the on_value variable.
+
+.. code-block:: yaml
+
+    on_value:
+      - script.execute: your_script
+    
+    script:
+      id: your_script
+      mode:restart
+      then:
+        delay: 500ms
+        - logger.log: "Rotary Encoder is Stationary"
 
 See Also
 --------
